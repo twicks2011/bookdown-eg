@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 2 Some R Bookdown Features | R Bookdown Template</title>
+  <meta name="description" content="This is the notes for your_module_name" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 2 Some R Bookdown Features | R Bookdown Template" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the notes for your_module_name" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 2 Some R Bookdown Features | R Bookdown Template" />
+  
+  <meta name="twitter:description" content="This is the notes for your_module_name" />
+  
+
+<meta name="author" content="Lisa Mott &amp; Tom Wicks" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="interactivity.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="./index.html">
+<img src="logos/Transparent.png"
+     alt="University of Nottingham Logo"
+     class="UoNLogo"/>
+     </a>
+<li><a href="./">School of Mathematical Sciences</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to R Bookdown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#r-bookdown-installation"><i class="fa fa-check"></i><b>1.1</b> R Bookdown Installation</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#use-rstudio-to-install-r-bookdown"><i class="fa fa-check"></i>Use RStudio to install R Bookdown</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#compile-a-book"><i class="fa fa-check"></i><b>1.2</b> Compile a Book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#upload-your-book-to-moodle"><i class="fa fa-check"></i><b>1.3</b> Upload Your Book to Moodle</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html"><i class="fa fa-check"></i><b>2</b> Some R Bookdown Features</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#bookdown-file-structure"><i class="fa fa-check"></i><b>2.1</b> Bookdown File Structure</a></li>
+<li class="chapter" data-level="2.2" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#markdown-basics"><i class="fa fa-check"></i><b>2.2</b> Markdown Basics</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#examples"><i class="fa fa-check"></i><b>2.2.1</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#mathematics"><i class="fa fa-check"></i><b>2.3</b> Mathematics</a></li>
+<li class="chapter" data-level="2.4" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#tables"><i class="fa fa-check"></i><b>2.4</b> Tables</a></li>
+<li class="chapter" data-level="2.5" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#images"><i class="fa fa-check"></i><b>2.5</b> Images</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#generating-images-using-r-or-python"><i class="fa fa-check"></i><b>2.5.1</b> Generating Images Using R (or Python)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#environments"><i class="fa fa-check"></i><b>2.6</b> Environments</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#numbered-environments"><i class="fa fa-check"></i><b>2.6.1</b> Numbered Environments</a></li>
+<li class="chapter" data-level="2.6.2" data-path="some-r-bookdown-features.html"><a href="some-r-bookdown-features.html#unnumbered-environments"><i class="fa fa-check"></i><b>2.6.2</b> Unnumbered Environments</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="interactivity.html"><a href="interactivity.html"><i class="fa fa-check"></i><b>3</b> Interactivity</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="interactivity.html"><a href="interactivity.html#reveal-hidden-text"><i class="fa fa-check"></i><b>3.1</b> Reveal Hidden Text</a></li>
+<li class="chapter" data-level="3.2" data-path="interactivity.html"><a href="interactivity.html#embedded-video"><i class="fa fa-check"></i><b>3.2</b> Embedded Video</a></li>
+<li class="chapter" data-level="3.3" data-path="interactivity.html"><a href="interactivity.html#quizzes"><i class="fa fa-check"></i><b>3.3</b> Quizzes</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="interactivity.html"><a href="interactivity.html#xerte"><i class="fa fa-check"></i><b>3.3.1</b> Xerte</a></li>
+<li class="chapter" data-level="3.3.2" data-path="interactivity.html"><a href="interactivity.html#itempool"><i class="fa fa-check"></i><b>3.3.2</b> Itempool</a></li>
+<li class="chapter" data-level="3.3.3" data-path="interactivity.html"><a href="interactivity.html#microsoft-forms"><i class="fa fa-check"></i><b>3.3.3</b> Microsoft Forms</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="adding-colour.html"><a href="adding-colour.html"><i class="fa fa-check"></i><b>4</b> Adding colour</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="adding-colour.html"><a href="adding-colour.html#adding-colour-to-maths-output"><i class="fa fa-check"></i><b>4.1</b> Adding colour to maths output</a></li>
+<li class="chapter" data-level="4.2" data-path="adding-colour.html"><a href="adding-colour.html#new-box-types"><i class="fa fa-check"></i><b>4.2</b> New box types</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.nottingham.ac.uk/mathematics/people/lisa.mott" target="_blank" rel="noopener noreferrer">Lisa Mott</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Bookdown Template</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="some-r-bookdown-features" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Part 2</span> Some R Bookdown Features<a href="some-r-bookdown-features.html#some-r-bookdown-features" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this section, we describe the basic use of R Bookdown and introduce some of the more advanced features/customisation. What we present here is representative but not exhaustive. R Bookdown is very well documented by its creator (<a href="https://yihui.org/?target=_blank">Yihui Xie</a>) and others.</p>
+<ul>
+<li><p>See <a href="https://bookdown.org/?target=_blank">bookdown.org</a> for lots of useful resources, including the comprehensive <a href="https://bookdown.org/yihui/bookdown/?target=_blank">Bookdown Documentation</a>.</p></li>
+<li><p>For advanced use of R Bookdown, the <a href="https://rstudio4edu.github.io/rstudio4edu-book/make-book.html?target=_blank">rstudio4edu guidance</a> is great.</p></li>
+<li><p>We have a dedicated <a href="https://teams.microsoft.com/l/channel/19%3a2e7592dc4df24a42aa4f4f48ae54c96f%40thread.tacv2/HTML%2520documents?groupId=43e79c12-f2dd-4e2b-9cb0-83958af28cdb&amp;tenantId=67bda7ee-fd80-41ef-ac91-358418290a1e?target=_blank">HTML/Accessibility channel</a> on the School’s Digital Learning Resources Team, where you can ask and discuss questions.</p></li>
+</ul>
+<div id="bookdown-file-structure" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Bookdown File Structure<a href="some-r-bookdown-features.html#bookdown-file-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are a number of files that make up the R Bookdown structure, but you’ll be glad to know that you can ignore most of them. The ones you will spend most of your time editing are the ones with the <code>.Rmd</code> extension.</p>
+<ul>
+<li><p><code>index.Rmd</code> is recognised by R Bookdown as the first chapter of your book. You can define the <code>title</code> and <code>author</code> of your book in lines 2 and 3 of this file respectively. You should not need to edit the remaining information in lines 4-15. Start writing the first section of your book after the <code>---</code> in line 16.</p></li>
+<li><p>The remaining <code>.Rmd</code> files contain the subsequent sections of your book. RMarkdown will read the files in alphabetical order, so a sensible naming convention for your files is <code>01-&lt;section-name&gt;.Rmd</code>, <code>02-&lt;section-name&gt;.Rmd</code>, etc. Note that each file can contain multiple sections.</p></li>
+</ul>
+<div class="tip">
+<p>If you prefer, you can write your entire book in <code>index.Rmd</code>, but this is not recommended as your file could get very big!</p>
+</div>
+<ul>
+<li><p><code>output.yml</code> provides R Bookdown with some information on how to compile your document. The only part of this you need to edit is line 13, where you can replace Lisa’s name with your own and update the link to your homepage.</p></li>
+<li><p><code>bookdown.yml</code> provides R Bookdown with some more information on your document details. The only lines of interest are:</p>
+<ul>
+<li>Line 1: Update this to change the output filename of your book;</li>
+<li>Line 4: Update this to change the prefix of each <code># Heading</code>. For this template, we have set this to <code>"Part "</code> (note the space at the end). If you would rather not have a prefix at all, comment out this line by inserting a <code>#</code> at the start of line 4.</li>
+</ul></li>
+</ul>
+</div>
+<div id="markdown-basics" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Markdown Basics<a href="some-r-bookdown-features.html#markdown-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you’re completely new to R Markdown, the <a href="https://rmarkdown.rstudio.com/authoring_basics.html?target=_blank">Markdown Basics</a> guide provides an excellent overview of the most common syntax. Most of it is very straightforward and intuitive, but will take some getting used to if you are accustomed to LaTeX.</p>
+<div id="examples" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Examples<a href="some-r-bookdown-features.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="emphasis" class="section level4 unnumbered hasAnchor">
+<h4>Emphasis<a href="some-r-bookdown-features.html#emphasis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Emphasise parts of text</strong> using <code>**bold**</code> or <code>__bold__</code>.</p>
+<div class="note">
+<p>You can use <code>*italic*</code> or <code>_italic_</code> for <em>italic text</em>, but it is best to avoid this when creating accessible documents.</p>
+</div>
+</div>
+<div id="headings" class="section level4 unnumbered hasAnchor">
+<h4>Headings<a href="some-r-bookdown-features.html#headings" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Use the syntax</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb2-1"><a href="some-r-bookdown-features.html#cb2-1" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
+<span id="cb2-2"><a href="some-r-bookdown-features.html#cb2-2" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
+<span id="cb2-3"><a href="some-r-bookdown-features.html#cb2-3" tabindex="-1"></a><span class="fu">### Heading 3</span></span>
+<span id="cb2-4"><a href="some-r-bookdown-features.html#cb2-4" tabindex="-1"></a><span class="fu">#### Heading 4</span></span>
+<span id="cb2-5"><a href="some-r-bookdown-features.html#cb2-5" tabindex="-1"></a><span class="fu">##### Heading 5</span></span>
+<span id="cb2-6"><a href="some-r-bookdown-features.html#cb2-6" tabindex="-1"></a><span class="fu">###### Heading 6</span></span></code></pre></div>
+<p>for headings, subheadings, etc. R Bookdown will automatically number your headings. To suppress the heading number, add <code>{-}</code> at the end of your heading, e.g. <code>## Unnumbered Subheading {-}</code>.</p>
+</div>
+<div id="links-and-references" class="section level4 unnumbered hasAnchor">
+<h4>Links and References<a href="some-r-bookdown-features.html#links-and-references" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Add a link to a url using the syntax <code>[link text](link url)</code>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-1" class="example"><strong>Example 2.1  (Website Link) </strong></span></p>
+<pre><code>[School of Mathematical Sciences](https://www.nottingham.ac.uk/mathematics/?target=_blank)</code></pre>
+<p><a href="https://www.nottingham.ac.uk/mathematics/?target=_blank">School of Mathematical Sciences</a></p>
+<p>Adding <code>?target=_blank</code> to the end of the URL forces the link to open in a new tab when clicked.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-2" class="example"><strong>Example 2.2  (Cross Reference) </strong></span><br>
+Link to other parts of your book using heading names.</p>
+<pre><code>Find out how to [Upload your book to Moodle][Upload Your Book to Moodle].</code></pre>
+<p>Find out how to <a href="index.html#upload-your-book-to-moodle">Upload your book to Moodle</a>.</p>
+</div>
+<div class="tip">
+<p>We recommend suppressing numbers from Heading 4 onwards.</p>
+</div>
+</div>
+<div id="lists" class="section level4 unnumbered hasAnchor">
+<h4>Lists<a href="some-r-bookdown-features.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Create unordered lists using the syntax</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb5-1"><a href="some-r-bookdown-features.html#cb5-1" tabindex="-1"></a><span class="ss">* </span>Item 1</span>
+<span id="cb5-2"><a href="some-r-bookdown-features.html#cb5-2" tabindex="-1"></a><span class="ss">* </span>Item 2</span>
+<span id="cb5-3"><a href="some-r-bookdown-features.html#cb5-3" tabindex="-1"></a><span class="ss">    + </span>Item 2a</span>
+<span id="cb5-4"><a href="some-r-bookdown-features.html#cb5-4" tabindex="-1"></a><span class="ss">    + </span>Item 2a</span></code></pre></div>
+<p>Which produces the output:</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2
+<ul>
+<li>Item 2a</li>
+<li>Item 2a</li>
+</ul></li>
+</ul>
+<p>Similarly, an ordered list can be created using the syntax</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb6-1"><a href="some-r-bookdown-features.html#cb6-1" tabindex="-1"></a><span class="ss">1. </span>Item 1</span>
+<span id="cb6-2"><a href="some-r-bookdown-features.html#cb6-2" tabindex="-1"></a><span class="ss">2. </span>Item 2</span>
+<span id="cb6-3"><a href="some-r-bookdown-features.html#cb6-3" tabindex="-1"></a>    a. Item 2a</span>
+<span id="cb6-4"><a href="some-r-bookdown-features.html#cb6-4" tabindex="-1"></a>    b. Item 2b</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Item 1</li>
+<li>Item 2
+<ol style="list-style-type: lower-alpha">
+<li>Item 2a</li>
+<li>Item 2b</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="mathematics" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Mathematics<a href="some-r-bookdown-features.html#mathematics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mathematics can be entered using familiar LaTeX commands and delimiters.</p>
+<div id="inline-mathematics" class="section level4 unnumbered hasAnchor">
+<h4>Inline Mathematics<a href="some-r-bookdown-features.html#inline-mathematics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Inline mathematics is delimited using either <code>$...$</code> or <code>\(...\)</code>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-3" class="example"><strong>Example 2.3  (Inline Mathematics) </strong></span><br>
+The syntax</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb7-1"><a href="some-r-bookdown-features.html#cb7-1" tabindex="-1"></a>Consider the equation $y = mx+c$.</span></code></pre></div>
+<p>yields: Consider the equation <span class="math inline">\(y = mx+c\)</span>.</p>
+</div>
+</div>
+<div id="display-mathematics" class="section level4 unnumbered hasAnchor">
+<h4>Display Mathematics<a href="some-r-bookdown-features.html#display-mathematics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Display mathematics (unnumbered) is delimited using either <code>$$...$$</code>, <code>\[...\]</code> or <code>\begin{equation*}...\end{equation*}</code>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-4" class="example"><strong>Example 2.4  (Display Mathematics) </strong></span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb8-1"><a href="some-r-bookdown-features.html#cb8-1" tabindex="-1"></a><span class="sc">\[</span></span>
+<span id="cb8-2"><a href="some-r-bookdown-features.html#cb8-2" tabindex="-1"></a> \int_0^\infty e^{-x^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}. </span>
+<span id="cb8-3"><a href="some-r-bookdown-features.html#cb8-3" tabindex="-1"></a><span class="sc">\]</span></span></code></pre></div>
+<p>yields:</p>
+<p><span class="math display">\[
+\int_0^\infty e^{-x^2}\,\mathrm{d}x = \frac{\sqrt{\pi}}{2}.
+\]</span></p>
+</div>
+</div>
+<div id="numbered-equation" class="section level4 unnumbered hasAnchor">
+<h4>Numbered Equation<a href="some-r-bookdown-features.html#numbered-equation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Enter a numbered equation in the usual way using <code>\begin{equation}...\end{equation}</code>. Whilst the equation environment follows conventional LaTeX syntax, R Bookdown does not support <code>\label</code>, <code>\eqref</code> to tag and reference equations. See the example below for how to tag and reference an equation in R Bookdown.</p>
+<div class="example">
+<p><span id="exm:EqRef" class="example"><strong>Example 2.5  (Numbered Equation) </strong></span></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb9-1"><a href="some-r-bookdown-features.html#cb9-1" tabindex="-1"></a>\begin{equation} </span>
+<span id="cb9-2"><a href="some-r-bookdown-features.html#cb9-2" tabindex="-1"></a>  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}</span>
+<span id="cb9-3"><a href="some-r-bookdown-features.html#cb9-3" tabindex="-1"></a>  (<span class="sc">\#</span>eq:binom)</span>
+<span id="cb9-4"><a href="some-r-bookdown-features.html#cb9-4" tabindex="-1"></a>\end{equation} </span>
+<span id="cb9-5"><a href="some-r-bookdown-features.html#cb9-5" tabindex="-1"></a>    </span>
+<span id="cb9-6"><a href="some-r-bookdown-features.html#cb9-6" tabindex="-1"></a>Consider the Binomial Theorem \@ref(eq:binom).</span></code></pre></div>
+<p><span class="math display" id="eq:binom">\[\begin{equation}
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \tag{2.1}
+\end{equation}\]</span></p>
+<p>Consider the Binomial Theorem <a href="some-r-bookdown-features.html#eq:binom">(2.1)</a>.</p>
+</div>
+<div class="tip">
+<p>Do not use underscores (“_“) in your labels for cross referencing equations, or any other parts (e.g. tables, theorems, etc. which are discussed in later sections). If you have a label with multiple words, either just write them all in lower case, or use camel case, e.g. <code>#PythThm</code> instead of <code>#pyth_thm</code>.</p>
+<p>Underscores are special characters in Markdown that are used to delimit italic text (see <a href="some-r-bookdown-features.html#markdown-basics">Markdown Basics</a>), so using this character in labels causes a conflict.</p>
+</div>
+</div>
+<div id="user-defined-commands" class="section level4 unnumbered hasAnchor">
+<h4>User-Defined Commands<a href="some-r-bookdown-features.html#user-defined-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You may be the sort of person who likes writing your own LaTeX commands to save some typing. You can add custom commands anywhere in a <code>.Rmd</code> file and they will work in the expected way, as long as you define the command before its first use in your book.</p>
+<div class="tip">
+<p>The best place to define your custom commands is in <code>index.md</code> just below Line 16.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-5" class="example"><strong>Example 2.6  (User-Defined Commands) </strong></span>Defining the following custom commands in <code>index.md</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb10-1"><a href="some-r-bookdown-features.html#cb10-1" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\rd</span>}{<span class="fu">\mathrm</span>{d}}</span>
+<span id="cb10-2"><a href="some-r-bookdown-features.html#cb10-2" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\deriv</span>}[2]{<span class="fu">\frac</span>{<span class="fu">\rd</span> #1}{<span class="fu">\rd</span> #2}}</span>
+<span id="cb10-3"><a href="some-r-bookdown-features.html#cb10-3" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\nthderiv</span>}[3]{<span class="fu">\frac</span>{<span class="fu">\rd</span>^#3 #1}{<span class="fu">\rd</span> #2}}</span></code></pre></div>
+<p>then writing</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb11-1"><a href="some-r-bookdown-features.html#cb11-1" tabindex="-1"></a>Consider the differential equation</span>
+<span id="cb11-2"><a href="some-r-bookdown-features.html#cb11-2" tabindex="-1"></a><span class="sc">\[</span></span>
+<span id="cb11-3"><a href="some-r-bookdown-features.html#cb11-3" tabindex="-1"></a>\nthderiv{y}{x}{2}+3\deriv{y}{x}-y=0.</span>
+<span id="cb11-4"><a href="some-r-bookdown-features.html#cb11-4" tabindex="-1"></a><span class="sc">\]</span></span></code></pre></div>
+<p>yields:</p>
+<p>Consider the differential equation
+<span class="math display">\[
+\frac{\mathrm{d}^2 y}{\mathrm{d}x}+3\frac{\mathrm{d}y}{\mathrm{d}x}-y=0.
+\]</span></p>
+</div>
+</div>
+<div id="multiple-and-multiline-equations" class="section level4 unnumbered hasAnchor">
+<h4>Multiple and Multiline Equations<a href="some-r-bookdown-features.html#multiple-and-multiline-equations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>R Bookdown interprets the <code>align</code> environment in the usual way. You can tag each line individually to refer back to specific equations. Replace the tag with <code>\notag</code> to suppress the numbering of a line.</p>
+<div class="note">
+<p>Unfortunately, R Bookdown does not support the <code>subequations</code> environment (e.g. for labelling equations 2.2a, 2.2b etc.)</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 2.7  (Align Environment) </strong></span></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb12-1"><a href="some-r-bookdown-features.html#cb12-1" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
+<span id="cb12-2"><a href="some-r-bookdown-features.html#cb12-2" tabindex="-1"></a><span class="ss">g(X_{n}) &amp;= g(</span><span class="sc">\theta</span><span class="ss">)+g&#39;({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}})(X_{n}-</span><span class="sc">\theta</span><span class="ss">) (</span><span class="sc">\#</span><span class="ss">eq:align1) </span><span class="sc">\\</span></span>
+<span id="cb12-3"><a href="some-r-bookdown-features.html#cb12-3" tabindex="-1"></a><span class="sc">\sqrt</span><span class="ss">{n}[g(X_{n})-g(</span><span class="sc">\theta</span><span class="ss">)] &amp;= g&#39;</span><span class="sc">\left</span><span class="ss">({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}}</span><span class="sc">\right</span><span class="ss">)</span></span>
+<span id="cb12-4"><a href="some-r-bookdown-features.html#cb12-4" tabindex="-1"></a><span class="ss">  </span><span class="sc">\sqrt</span><span class="ss">{n}[X_{n}-</span><span class="sc">\theta</span><span class="ss"> ] </span></span>
+<span id="cb12-5"><a href="some-r-bookdown-features.html#cb12-5" tabindex="-1"></a><span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:align2)</span></span>
+<span id="cb12-6"><a href="some-r-bookdown-features.html#cb12-6" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span>
+<span id="cb12-7"><a href="some-r-bookdown-features.html#cb12-7" tabindex="-1"></a>  </span>
+<span id="cb12-8"><a href="some-r-bookdown-features.html#cb12-8" tabindex="-1"></a>Consider the equations <span class="fu">\@ref</span>(eq:align1) and <span class="fu">\@ref</span>(eq:align2).</span></code></pre></div>
+<p><span class="math display" id="eq:align2" id="eq:align1">\[\begin{align}
+g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \tag{2.2} \\
+\sqrt{n}[g(X_{n})-g(\theta)] &amp;= g&#39;\left({\tilde{\theta}}\right)
+  \sqrt{n}[X_{n}-\theta ]
+\tag{2.3}
+\end{align}\]</span></p>
+<p>Consider equations <a href="some-r-bookdown-features.html#eq:align1">(2.2)</a> and <a href="some-r-bookdown-features.html#eq:align2">(2.3)</a>.</p>
+</div>
+<div class="note">
+<p>There is a (possibly unavoidable) bug with the cross-referencing of multiple equations in the align environment. Whilst adding a label to each equation successfully adds a number to the equation where it is displayed, the hyperlink does not work for the first equation. In general, only the hyperlink to the final equation will work. In the situation where you have multiple equations and it is important to be able to individually reference each one, we recommend writing each equation in its own <code>equation</code> environment using the method in Example <a href="some-r-bookdown-features.html#exm:EqRef">2.5</a>.</p>
+</div>
+<p>You can use the <code>split</code> environment inside <code>equation</code> so that all lines in a multiline equation share the same number.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 2.8  (Split Environment) </strong></span></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb13-1"><a href="some-r-bookdown-features.html#cb13-1" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span></span>
+<span id="cb13-2"><a href="some-r-bookdown-features.html#cb13-2" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">split</span>}</span>
+<span id="cb13-3"><a href="some-r-bookdown-features.html#cb13-3" tabindex="-1"></a><span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y)</span><span class="sc">\\</span></span>
+<span id="cb13-4"><a href="some-r-bookdown-features.html#cb13-4" tabindex="-1"></a><span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;</span><span class="sc">\\</span></span>
+<span id="cb13-5"><a href="some-r-bookdown-features.html#cb13-5" tabindex="-1"></a><span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span></span>
+<span id="cb13-6"><a href="some-r-bookdown-features.html#cb13-6" tabindex="-1"></a><span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1}</span><span class="sc">\\</span></span>
+<span id="cb13-7"><a href="some-r-bookdown-features.html#cb13-7" tabindex="-1"></a><span class="ss"> &amp; =(X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span></span>
+<span id="cb13-8"><a href="some-r-bookdown-features.html#cb13-8" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">split</span>}</span>
+<span id="cb13-9"><a href="some-r-bookdown-features.html#cb13-9" tabindex="-1"></a><span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span></span>
+<span id="cb13-10"><a href="some-r-bookdown-features.html#cb13-10" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>} </span>
+<span id="cb13-11"><a href="some-r-bookdown-features.html#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="some-r-bookdown-features.html#cb13-12" tabindex="-1"></a>See <span class="fu">\@ref</span>(eq:var-beta) for the calculation of <span class="ss">\(</span><span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">})\)</span>.</span></code></pre></div>
+<p><span class="math display" id="eq:var-beta">\[\begin{equation}
+\begin{split}
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
+&amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
+&amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+&amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
+&amp; =(X&#39;X)^{-1}\sigma^{2}
+\end{split}
+\tag{2.4}
+\end{equation}\]</span></p>
+<p>See <a href="some-r-bookdown-features.html#eq:var-beta">(2.4)</a> for the calculation of <span class="math inline">\(\mathrm{Var}(\hat{\beta})\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="tables" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Tables<a href="some-r-bookdown-features.html#tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here is a basic table.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb14-1"><a href="some-r-bookdown-features.html#cb14-1" tabindex="-1"></a>|Header 1| Header 2 | Header 3|</span>
+<span id="cb14-2"><a href="some-r-bookdown-features.html#cb14-2" tabindex="-1"></a>|:------|:-------|:---------|</span>
+<span id="cb14-3"><a href="some-r-bookdown-features.html#cb14-3" tabindex="-1"></a>|Row 1 | Number | Number|</span>
+<span id="cb14-4"><a href="some-r-bookdown-features.html#cb14-4" tabindex="-1"></a>|Row 2 | Number | Number|</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Header 1</th>
+<th align="left">Header 2</th>
+<th align="left">Header 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Row 1</td>
+<td align="left">Number</td>
+<td align="left">Number</td>
+</tr>
+<tr class="even">
+<td align="left">Row 2</td>
+<td align="left">Number</td>
+<td align="left">Number</td>
+</tr>
+</tbody>
+</table>
+<div class="tip">
+<p>Only very simple tables can be created using Markdown syntax (by design). This is generally a good thing for accessibility, but if you want to create more intricate tables, you can do so using raw HTML inside a <code>.Rmd</code> file (HTML is interpreted by R Bookdown just as readily as Markdown).</p>
+<p>If you get fed up dealing with plain text to make your table, there are many good Markdown/HTML table generators online. <a href="https://www.tablesgenerator.com/html_tables?target=_blank">I use this one</a>, but others are available.</p>
+</div>
+</div>
+<div id="images" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Images<a href="some-r-bookdown-features.html#images" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We look at two approaches for adding the same image. We add <strong>alternative text (usually referred to as “alt text”)</strong> in both cases. You will see how R Markdown treats them differently.</p>
+<div class="note">
+<p>The files must either be in the same directory as your <code>.Rmd</code> file(s), or you need to specify the path to the subfolder containing your image file.</p>
+</div>
+<div id="approach-1-markdown" class="section level4 unnumbered hasAnchor">
+<h4>Approach 1 (Markdown)<a href="some-r-bookdown-features.html#approach-1-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This is the easier approach but the alt text is not as nice (we have cheated and written it as a caption).</p>
+<pre><code>![Here is the alt text](workers.png)</code></pre>
+<div class="float">
+<img src="workers.png" alt="Here is the alt text" />
+<div class="figcaption">Here is the alt text</div>
+</div>
+</div>
+<div id="approach-2-r" class="section level4 unnumbered hasAnchor">
+<h4>Approach 2 (R)<a href="some-r-bookdown-features.html#approach-2-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This is a slightly more difficult approach and requires the use of R, but it is better for “hiding” the alternative text.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb16-1"><a href="some-r-bookdown-features.html#cb16-1" tabindex="-1"></a><span class="in">```{r, echo=FALSE, out.width=&quot;600px&quot;, fig.alt=&quot;Here is the alt text&quot;, fig.cap=&quot;Here is the image caption.&quot;}</span></span>
+<span id="cb16-2"><a href="some-r-bookdown-features.html#cb16-2" tabindex="-1"></a><span class="in">    knitr::include_graphics(&quot;workers.png&quot;)</span></span>
+<span id="cb16-3"><a href="some-r-bookdown-features.html#cb16-3" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-14"></span>
+<img src="workers.png" alt="Here is the alt text" width="600px" />
+<p class="caption">
+Figure 2.1: Here is the image caption.
+</p>
+</div>
+<p>The student could view the alt text by right clicking on the image and selecting “Inspect Element”, or by using suitable assistive technology.</p>
+<div class="tip">
+<p>This is the preferred approach since we can distinguish between image captions and alt text. Also, we benefit from R’s automatic numbering of figures in their captions.</p>
+</div>
+</div>
+<div id="generating-images-using-r-or-python" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Generating Images Using R (or Python)<a href="some-r-bookdown-features.html#generating-images-using-r-or-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Press Ctrl+Alt+I to add R code. This adds the chunk below and you can add in R code. Python (or other languages) can also be added by pressing the ‘+C’ image at the top right corner.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 2.9  (Create Image Using R) </strong></span></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="some-r-bookdown-features.html#cb17-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb17-2"><a href="some-r-bookdown-features.html#cb17-2" tabindex="-1"></a>y<span class="ot">&lt;-</span>x<span class="sc">^</span>{<span class="dv">2</span>}</span>
+<span id="cb17-3"><a href="some-r-bookdown-features.html#cb17-3" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">lwd=</span><span class="dv">4</span>,<span class="at">main=</span><span class="st">&quot;Mock plot&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="R_Bookdown_Template_files/figure-html/unnamed-chunk-15-1.png" alt="A graph that shows..." width="672" />
+<p class="caption">
+Figure 2.2: A graph demonstrating…
+</p>
+</div>
+</div>
+<p>You can also hide code, so that graphs are produced without showing the code, or you can hide output so the code is shown without the results etc. see <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf?target=_blank">the R Markdown cheatsheet</a> for more information.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 2.10  (Hide Code) </strong></span>The graph is produced but the code is hidden, by setting echo=FALSE.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="R_Bookdown_Template_files/figure-html/unnamed-chunk-16-1.png" alt="A graph that shows..." width="672" />
+<p class="caption">
+Figure 2.3: A graph demonstrating…
+</p>
+</div>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 2.11  (Hide Graph) </strong></span>Here, the code is shown but the graph is not shown using eval=FALSE.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="some-r-bookdown-features.html#cb18-1" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="at">mean=</span><span class="dv">4</span>,<span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb18-2"><a href="some-r-bookdown-features.html#cb18-2" tabindex="-1"></a>y<span class="ot">&lt;-</span>x<span class="sc">^</span>{<span class="dv">2</span>}</span>
+<span id="cb18-3"><a href="some-r-bookdown-features.html#cb18-3" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">lwd=</span><span class="dv">4</span>,<span class="at">main=</span><span class="st">&quot;Mock plot&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="environments" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Environments<a href="some-r-bookdown-features.html#environments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Bookdown has several built-in environments, such as Theorem, Example, etc to help organise your notes.</p>
+<div id="numbered-environments" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Numbered Environments<a href="some-r-bookdown-features.html#numbered-environments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following environments have an automatic numbering system and so can be cross-referenced.</p>
+<table>
+<caption><span id="tab:num-envs">Table 2.1: </span> Numbered Environments in R Bookdown</caption>
+<thead>
+<tr class="header">
+<th align="left">Environment</th>
+<th align="left">Printed Name</th>
+<th align="left">Label Prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">theorem</td>
+<td align="left">Theorem</td>
+<td align="left">thm</td>
+</tr>
+<tr class="even">
+<td align="left">lemma</td>
+<td align="left">Lemma</td>
+<td align="left">lem</td>
+</tr>
+<tr class="odd">
+<td align="left">corollary</td>
+<td align="left">Corollary</td>
+<td align="left">cor</td>
+</tr>
+<tr class="even">
+<td align="left">proposition</td>
+<td align="left">Proposition</td>
+<td align="left">prp</td>
+</tr>
+<tr class="odd">
+<td align="left">conjecture</td>
+<td align="left">Conjecture</td>
+<td align="left">cnj</td>
+</tr>
+<tr class="even">
+<td align="left">definition</td>
+<td align="left">Definition</td>
+<td align="left">def</td>
+</tr>
+<tr class="odd">
+<td align="left">example</td>
+<td align="left">Example</td>
+<td align="left">exm</td>
+</tr>
+<tr class="even">
+<td align="left">exercise</td>
+<td align="left">Exercise</td>
+<td align="left">exr</td>
+</tr>
+<tr class="odd">
+<td align="left">hypothesis</td>
+<td align="left">Hypothesis</td>
+<td align="left">hyp</td>
+</tr>
+</tbody>
+</table>
+<div class="example">
+<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 2.12  (Example Environment) </strong></span><br>
+This green box is the <code>example</code> environment. To invoke the <code>example</code> environment, use the syntax</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb19-1"><a href="some-r-bookdown-features.html#cb19-1" tabindex="-1"></a>::: {.example name=&quot;Example Name&quot;}</span>
+<span id="cb19-2"><a href="some-r-bookdown-features.html#cb19-2" tabindex="-1"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb19-3"><a href="some-r-bookdown-features.html#cb19-3" tabindex="-1"></a>Example text...</span>
+<span id="cb19-4"><a href="some-r-bookdown-features.html#cb19-4" tabindex="-1"></a>:::</span></code></pre></div>
+<p>If you do not wish to name your example, then write</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb20-1"><a href="some-r-bookdown-features.html#cb20-1" tabindex="-1"></a>:::example</span>
+<span id="cb20-2"><a href="some-r-bookdown-features.html#cb20-2" tabindex="-1"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb20-3"><a href="some-r-bookdown-features.html#cb20-3" tabindex="-1"></a>Example text...</span>
+<span id="cb20-4"><a href="some-r-bookdown-features.html#cb20-4" tabindex="-1"></a>:::</span></code></pre></div>
+<p>The <code>&lt;br&gt;</code> tag is used to start the example text on a new line.</p>
+</div>
+<div id="cross-referencing-environments" class="section level4 unnumbered hasAnchor">
+<h4>Cross Referencing Environments<a href="some-r-bookdown-features.html#cross-referencing-environments" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Numbered environments are cross referenced in a similar way to equations (see <a href="some-r-bookdown-features.html#mathematics">Section 2.3</a>).</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb21-1"><a href="some-r-bookdown-features.html#cb21-1" tabindex="-1"></a>::: {.theorem #pyth name=&quot;Pythagoras&#39; Theorem&quot;}</span>
+<span id="cb21-2"><a href="some-r-bookdown-features.html#cb21-2" tabindex="-1"></a>For a right triangle, if $c$ denotes the length of the hypotenuse</span>
+<span id="cb21-3"><a href="some-r-bookdown-features.html#cb21-3" tabindex="-1"></a>and $a$ and $b$ denote the lengths of the other two sides, we have</span>
+<span id="cb21-4"><a href="some-r-bookdown-features.html#cb21-4" tabindex="-1"></a>$$a^2 + b^2 = c^2$$</span>
+<span id="cb21-5"><a href="some-r-bookdown-features.html#cb21-5" tabindex="-1"></a>:::</span>
+<span id="cb21-6"><a href="some-r-bookdown-features.html#cb21-6" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="some-r-bookdown-features.html#cb21-7" tabindex="-1"></a>We use Pythagoras&#39; Theorem \@ref(thm:pyth) to find the length of the missing side.</span></code></pre></div>
+<div class="theorem">
+<p><span id="thm:pyth" class="theorem"><strong>Theorem 2.1  (Pythagoras' Theorem) </strong></span><br>
+For a right-angled triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse
+and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the other two sides, we have
+<span class="math display">\[a^2 + b^2 = c^2.\]</span></p>
+</div>
+<p>We use Pythagoras’ Theorem <a href="some-r-bookdown-features.html#thm:pyth">2.1</a> to find the length of the missing side.</p>
+<p>The syntax for referencing environments is <code>\@ref(&lt;prefix&gt;:&lt;label&gt;)</code>. Refer to Table <a href="some-r-bookdown-features.html#tab:num-envs">2.1</a> for the prefix corresponding to each environment type.</p>
+<div class="note">
+<p>The prefix for a table reference is <code>tab</code>.</p>
+</div>
+</div>
+</div>
+<div id="unnumbered-environments" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Unnumbered Environments<a href="some-r-bookdown-features.html#unnumbered-environments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<caption><span id="tab:oth-envs">Table 2.2: </span> Other Environments in R Bookdown</caption>
+<thead>
+<tr class="header">
+<th align="left">Environment</th>
+<th align="left">Printed Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">proof</td>
+<td align="left">Proof</td>
+</tr>
+<tr class="even">
+<td align="left">remark</td>
+<td align="left">Remark</td>
+</tr>
+<tr class="odd">
+<td align="left">note</td>
+<td align="left">Note</td>
+</tr>
+<tr class="even">
+<td align="left">tip</td>
+<td align="left">Tip</td>
+</tr>
+<tr class="odd">
+<td align="left">activity</td>
+<td align="left">Activity</td>
+</tr>
+<tr class="even">
+<td align="left">discussion</td>
+<td align="left">Discussion</td>
+</tr>
+<tr class="odd">
+<td align="left">solution</td>
+<td align="left">Solution</td>
+</tr>
+</tbody>
+</table>
+<div class="note">
+<p>We have written a custom template for use in The School of Mathematical Sciences with a specific colour scheme and some additional environments. The code for the School Template is in <code>style.css</code>.</p>
+<p>If you want to make adjustments to the colour scheme, or add your own custom environments, then either edit your local copy of <code>style.css</code>, or (if you’re not familiar with CSS) contact <a href="mailto:tom.wicks@nottingham.ac.uk">Tom</a> or <a href="mailto:lisa.mott@nottingham.ac.uk">Lisa</a> to request a change/update.</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="interactivity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R_Bookdown_Template.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"split_by": "none"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
