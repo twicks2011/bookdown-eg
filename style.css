@@ -257,10 +257,6 @@ div.tip {
 
 .book.color-theme-1 .book-body .page-wrapper .myhl3 {color:#8c34eb}
 
-/* Adding URL colour in Sepia */
-.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a{
-  color:#770000;
-}
 
 /* Adding colour to mathematical notation */
 
@@ -321,6 +317,5 @@ div.keypoint {
 /* Adding URL colour in Sepia */
 
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a{
-  color:#E1964C;
-}
+  color:#770000;
 }
